@@ -3,12 +3,12 @@ requires = ["scikit-build-core"]
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "stlmc"
-version = "1.0.0.dev3"
-description = "An SMT-based bounded model checker for signal temporal logic"
+name = "stlmc-x"
+version = "0.1.0.dev1"
+description = "STLProbe extensions to STLMC: multiple and diverse counterexample generation for signal temporal logic"
 readme = "README.md"
 license.text = "GPLv3"
-keywords = ["stlmc", "model checker", "STL", "signal temporal logic", "bounded model checker"]
+keywords = ["stlmc", "model checker", "STL", "signal temporal logic", "bounded model checker", "counterexample", "diversity"]
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -27,18 +27,30 @@ dependencies = [
 ]
 
 [[project.authors]]
+name  = "Sergio Quijano"
+email = "sergio.quijano.r@gmail.com"
+
+# Original STLMC authors — this project is a fork of STLMC.
+# Copyright (c) Geunyeol Yu (rgyen@postech.ac.kr)
+# STLMC: https://stlmc.github.io/ | https://github.com/stlmc/stlmc
+[[project.authors]]
 name  = "Geunyeol Yu"
 email = "rgyen@postech.ac.kr"
 
 [project.scripts]
+stlmc-x     = "stlmc.cli.mc:main"
+stlmc-x-vis = "stlmc.cli.visualize:main"
+# Original entry points preserved for compatibility during development
 stlmc = "stlmc.cli.mc:main"
 stlmc-vis = "stlmc.cli.visualize:main"
 
 [project.urls]
-"Homepage"      = "https://stlmc.github.io/"
-"Bug Tracker"   = "https://github.com/stlmc/stlmc/issues"
-"Documentation" = "https://stlmc.github.io/assets/files/stlmc-manual.pdf"
-"Source Code"   = "https://github.com/stlmc/stlmc/"
+"Homepage"      = "https://github.com/squijanor/stlprobe"
+"Bug Tracker"   = "https://github.com/squijanor/stlprobe/issues"
+"Source Code"   = "https://github.com/squijanor/stlprobe"
+"Upstream STLMC"      = "https://stlmc.github.io/"
+"Upstream Source Code" = "https://github.com/stlmc/stlmc/"
+"Upstream Documentation" = "https://stlmc.github.io/assets/files/stlmc-manual.pdf"
 
 [tool.scikit-build]
 sdist.include = ["src/", "3rd_party/", "tests/"]
